@@ -1,21 +1,22 @@
-public class Rectangle {
+public class Rectangle extends Figures  implements Area{
     private double x;
     private double y;
+    public final int priority;
 
-
-    Rectangle(double x, double y) {
+    Rectangle(double x, double y, int valueHierarchy) {
         this.x = x;
         this.y = y;
-        System.out.println("Rectangle");
-        System.out.println("x=" + x + " y=" + y);
-        area();
-    }
+         this.priority=valueHierarchy;}
 
-    public void area() {
+    @Override
+    public double area() {
         double area = getX() * getY();
-        System.out.println("Area=" + area + "\n");
+        return area;
 
     }
+
+    public String toString() {
+        return "Rectangle\n\"x=" + x + " y=" + y +"\nFull area of Rectangle= " + area()+"\n"; }
 
     public double getY() {
         return y;
@@ -23,6 +24,9 @@ public class Rectangle {
 
     public double getX() {
         return x;
+    }
+    public int getPriority() {
+        return priority;
     }
 
 }

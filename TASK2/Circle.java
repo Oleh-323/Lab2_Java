@@ -1,25 +1,27 @@
-public class Circle {
+public class Circle extends Figures implements Area {
     private double R;//радіус
     private final double P = 3.14;//число пі
-
-    Circle(double R) {
+    public final int priority;
+    Circle(double R,int valueHierarchy) {
         this.R = R;
-
-        System.out.println("Circle \nR=" + getR() + " P=" + getP());
-        System.out.println("Squere of Circle=" + area() + "\n");
+        this.priority=valueHierarchy;
     }
-
-    private double area() {
+    @Override
+    public double area() {
         double squere = getR() * getR() * getP();
         return squere;
     }
 
-
+    public String toString() {
+        return "Circle\n\"R=" + R +"\nFull area of Circle= " + area()+"\n"; }
     public double getP() {
         return P;
     }
 
     public double getR() {
         return R;
+    }
+    public int getPriority() {
+        return priority;
     }
 }

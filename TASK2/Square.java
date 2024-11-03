@@ -1,20 +1,26 @@
-public class Square {
+public class Square extends Figures  implements Area {
     private double x;//сторона
+    public final int priority;
 
-
-    Square(double x) {
+    Square(double x,int valueHierarchy) {
         this.x = x;
+        this.priority=valueHierarchy;
 
-        System.out.println("Square \nX=" + getX());
-        System.out.println("Area of Square=" + area() + "\n");
     }
 
-    private double area() {
+    @Override
+    public double area() {
         double area = getX() * getX();
         return area;
     }
+    public String toString() {
+        return "Square\nx=" + x +"\nFull area of cube= " + area()+"\n"; }
+
 
     public double getX() {
         return x;
+    }
+    public int getPriority() {
+        return priority;
     }
 }

@@ -1,19 +1,23 @@
-public class Triangle {
+public class Triangle extends Figures  implements Area {
     private double x;//катет
     private double y;//катет
+    public final int priority;
 
-
-    Triangle(double x, double y) {//прямокутний трикутник*
+    Triangle(double x, double y,int valueHierarchy) {//прямокутний трикутник*
         this.x = x;
         this.y = y;
-        System.out.println("Triangle \nX=" + getX() + " Y=" + getY());
-        System.out.println("Area of Triangle=" + area() + "\n");
+        this.priority=valueHierarchy;
     }
 
-    private double area() {
+    @Override
+    public double area() {
         double area = (getX() * getY()) / 2;
         return area;
     }
+
+    public String toString() {
+        return "Triangle\nx=" + getX() +" y="+getY()+"\nFull area of Triangle= " + area()+"\n"; }
+
 
     public double getY() {
         return y;
@@ -21,6 +25,9 @@ public class Triangle {
 
     public double getX() {
         return x;
+    }
+    public int getPriority() {
+        return priority;
     }
 
 }
